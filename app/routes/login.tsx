@@ -4,6 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '~/components/LanguageSwitcher'
 import '~/i18n'
 
+export const meta = () => {
+  return [
+    { title: "Login - LCL" },
+    { name: "description", content: "Login to your LCL account" }
+  ]
+}
+
 export default function Login() {
   const { t } = useTranslation('Auth')
   const [loginMode, setLoginMode] = useState<'email' | 'root'>('email')
@@ -98,8 +105,9 @@ export default function Login() {
           {loginMode === 'email' ? (
             <>
               <div className="mb-4">
-                <label className="block mb-2">{t('login.email')}</label>
+                <label htmlFor="email" className="block mb-2">{t('login.email')}</label>
                 <input
+                  id="email"
                   type="email"
                   className="input-field"
                   value={email}
@@ -109,8 +117,9 @@ export default function Login() {
               </div>
 
               <div className="mb-6">
-                <label className="block mb-2">{t('login.password')}</label>
+                <label htmlFor="password" className="block mb-2">{t('login.password')}</label>
                 <input
+                  id="password"
                   type="password"
                   className="input-field"
                   value={password}
@@ -122,8 +131,9 @@ export default function Login() {
           ) : (
             <>
               <div className="mb-4">
-                <label className="block mb-2">{t('login.rootAccountId')}</label>
+                <label htmlFor="rootAccountId" className="block mb-2">{t('login.rootAccountId')}</label>
                 <input
+                  id="rootAccountId"
                   type="text"
                   className="input-field"
                   value={rootAccountId}
@@ -133,8 +143,9 @@ export default function Login() {
               </div>
 
               <div className="mb-4">
-                <label className="block mb-2">{t('login.iamAccount')}</label>
+                <label htmlFor="iamAccount" className="block mb-2">{t('login.iamAccount')}</label>
                 <input
+                  id="iamAccount"
                   type="text"
                   className="input-field"
                   value={iamAccount}
@@ -144,8 +155,9 @@ export default function Login() {
               </div>
 
               <div className="mb-6">
-                <label className="block mb-2">{t('login.password')}</label>
+                <label htmlFor="rootPassword" className="block mb-2">{t('login.password')}</label>
                 <input
+                  id="rootPassword"
                   type="password"
                   className="input-field"
                   value={password}

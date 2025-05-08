@@ -1,41 +1,48 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
-import { useTranslation } from 'react-i18next';
-import { LanguageSwitcher } from '~/components/LanguageSwitcher';
-import '~/i18n'; // Import i18n configuration
+import React, { useState } from 'react'
+import { Link } from 'react-router'
+import { useTranslation } from 'react-i18next'
+import { LanguageSwitcher } from '~/components/LanguageSwitcher'
+import '~/i18n'
+
+export const meta = () => {
+  return [
+    { title: "Register - LCL" },
+    { name: "description", content: "Create a new LCL account" }
+  ]
+}
 
 export default function Register() {
-  const { t } = useTranslation('Auth');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const { t } = useTranslation('Auth')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [passwordError, setPasswordError] = useState('')
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    setPassword(e.target.value)
     if (confirmPassword && e.target.value !== confirmPassword) {
-      setPasswordError(t('form.passwordMismatch'));
+      setPasswordError(t('form.passwordMismatch'))
     } else {
-      setPasswordError('');
+      setPasswordError('')
     }
-  };
+  }
 
   const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setConfirmPassword(e.target.value);
+    setConfirmPassword(e.target.value)
     if (password && e.target.value !== password) {
-      setPasswordError(t('form.passwordMismatch'));
+      setPasswordError(t('form.passwordMismatch'))
     } else {
-      setPasswordError('');
+      setPasswordError('')
     }
-  };
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (password !== confirmPassword) {
-      setPasswordError(t('form.passwordMismatch'));
-      return;
+      setPasswordError(t('form.passwordMismatch'))
+      return
     }
     // Handle registration logic here
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black p-4 relative">
@@ -47,15 +54,6 @@ export default function Register() {
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block mb-2">{t('register.name')}</label>
-            <input
-              type="text"
-              className="input-field"
-              required
-            />
-          </div>
-
           <div className="mb-4">
             <label className="block mb-2">{t('register.email')}</label>
             <input
@@ -106,5 +104,5 @@ export default function Register() {
         </div>
       </div>
     </div>
-  );
+  )
 }
