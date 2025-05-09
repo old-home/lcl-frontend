@@ -1,4 +1,5 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 // This file is used to set up the testing environment
 // You can add global mocks or other setup code here
@@ -7,7 +8,7 @@ import '@testing-library/jest-dom';
 vi.mock('~/i18n', () => ({
   default: {},
   // Add any specific functions that need to be mocked
-}));
+}))
 
 // Mock the react-i18next hooks
 vi.mock('react-i18next', () => ({
@@ -17,4 +18,4 @@ vi.mock('react-i18next', () => ({
       changeLanguage: vi.fn(),
     },
   }),
-}));
+}))

@@ -13,9 +13,20 @@ export const meta = () => {
 
 export default function Register() {
   const { t } = useTranslation('Auth')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
+  const [emailError, setEmailError] = useState('')
+
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
+    if (email) {
+      setEmailError(t('form.email'))
+    } else {
+      setEmailError('')
+    }
+  }
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
@@ -60,7 +71,12 @@ export default function Register() {
               type="email"
               className="input-field"
               required
+              value={email}
+              onChange={handleEmail}
             />
+            {emailError && (
+              <p className="text-red-500 mt-1 text-sm">{emailError}</p>
+            )}
           </div>
 
           <div className="mb-4">
