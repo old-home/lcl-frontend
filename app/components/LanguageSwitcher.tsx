@@ -1,12 +1,12 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation()
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+    i18n.changeLanguage(lng)
+  }
 
   return (
     <div className="flex gap-2 absolute top-4 right-4">
@@ -23,5 +23,5 @@ export function LanguageSwitcher() {
         JP
       </button>
     </div>
-  );
+  )
 }

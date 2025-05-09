@@ -5,10 +5,7 @@ import { LanguageSwitcher } from '~/components/LanguageSwitcher'
 import '~/i18n'
 
 export const meta = () => {
-  return [
-    { title: "Register - LCL" },
-    { name: "description", content: "Create a new LCL account" }
-  ]
+  return [{ title: 'Register - LCL' }, { name: 'description', content: 'Create a new LCL account' }]
 }
 
 export default function Register() {
@@ -74,9 +71,7 @@ export default function Register() {
               value={email}
               onChange={handleEmail}
             />
-            {emailError && (
-              <p className="text-red-500 mt-1 text-sm">{emailError}</p>
-            )}
+            {emailError && <p className="text-red-500 mt-1 text-sm">{emailError}</p>}
           </div>
 
           <div className="mb-4">
@@ -99,16 +94,10 @@ export default function Register() {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-            {passwordError && (
-              <p className="text-red-500 mt-1 text-sm">{passwordError}</p>
-            )}
+            {passwordError && <p className="text-red-500 mt-1 text-sm">{passwordError}</p>}
           </div>
 
-          <button
-            type="submit"
-            className="btn-primary w-full"
-            disabled={!!passwordError}
-          >
+          <button type="submit" className="btn-primary w-full" disabled={!!passwordError}>
             {t('register.submit')}
           </button>
         </form>
